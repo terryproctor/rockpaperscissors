@@ -6,22 +6,24 @@
 </head>
 <body>
   <script>
-    // Your JavaScript goes here!
-
+  
 function computerPlay() {
 let computerRandom = Math.floor ((Math.random () * 3) +1);
-if (computerRandom == 1) {
-alert.log('Computer selected rock')  
+switch (computerRandom) {
+case 1:
+    console.log('Computer selected Rock');
+    break;
+case 2:
+    console.log('Computer selected Paper');
+    break;
+case 3:
+    console.log('Computer selected Scissors');
+    break;
 }
-else if  (computerRandom == 2) {
-alert.log('Computer selected paper')  
 }
-else if  (computerRandom == 3) {
-alert.log('Computer selected scissors')
-}
-}
+computerPlay();
 
-return computerplay();
+
  </script>
 </body>
 </html>
