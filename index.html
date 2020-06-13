@@ -5,17 +5,18 @@
   <meta charset="UTF-8"/>
 </head>
 <body>
-
     <h1>Open the console F12 to play</h1>
   <script>
-
+let userScore=0;
+let computerScore=0;
+let round=0;
 
 function userPlay() {
 userSelect = prompt('Rock, Paper or Scissors');
 
 userChosen = userSelect.toLowerCase();
 switch (userChosen) {
-case 'rock':
+case 'rock':                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     console.log('You selected Rock');
     break;
 case 'paper':
@@ -31,7 +32,6 @@ default:
 }
 return userChosen;
 } 
-
 
 function computerPlay() {
 computerChosen = Math.floor ((Math.random () * 3) +1);
@@ -52,8 +52,6 @@ case 3:
 return computerChosen;
 }
 
-
-
 function Results(computerChosen , userChosen) {
  if (computerChosen === userChosen) {
  return result = 'It\'s a Tie!'
@@ -69,13 +67,13 @@ function Results(computerChosen , userChosen) {
  return result = 'Computer won!'
 }
  else if (computerChosen === 'scissors' && userChosen === 'rock') {
- return result = 'You won'    
+ return result = 'You won!'    
  }
  else if (computerChosen === 'paper' && userChosen === 'scissors') {
  return result = 'You won!'
 }
- else if (computerChosen === 'scissors' && userChosen === 'rock') {
- return result = 'Computer won'    
+ else if (computerChosen === 'scissors' && userChosen === 'paper') {
+ return result = 'Computer won!'    
  }  
  else {
  return result = 'Something went wrong!'
@@ -83,17 +81,66 @@ function Results(computerChosen , userChosen) {
 }
 
 function playRound(){
-    let computerChosen =
-    computerPlay();    
     let userChosen    =
     userPlay();
+    let computerChosen =
+    computerPlay();    
+    
+
 
 console.log(Results(computerChosen, userChosen));
 }
 
+function checkScore(){
+    switch (result) {
+case 'You won!':
+    userScore++;
+    round++;    
+break;
+
+case 'Computer won!':
+    computerScore++;
+    round++;   
+break;
+
+case 'It\'s a Tie!':
+    round++;  
+break;
+}
+
+console.log("Round " + round); 
+console.log("User score " + userScore); 
+console.log("Computer " + computerScore);
+}
+
+function finalScore() {
+if (userScore == computerScore){
+    console.log("Final result: It's a draw!");
+}
+else if (computerScore > userScore) {
+    console.log("Final result: Computer wins! Muhahaha!");
+}
+else if (userScore > computerScore){
+    console.log("Final result: You win! Well done!");
+}
+}
+
+function game() {
 playRound ();
+checkScore();
+playRound ();
+checkScore();
+playRound ();
+checkScore();
+playRound ();
+checkScore();
+playRound ();
+checkScore();
+finalScore();
+}
+
+game();
 
  </script>
 </body>
 </html>
-
