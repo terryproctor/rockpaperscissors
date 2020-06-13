@@ -5,12 +5,16 @@
   <meta charset="UTF-8"/>
 </head>
 <body>
+
+    <h1>Open the console F12 to play</h1>
   <script>
-      
+
+
 function userPlay() {
-let userSelects = prompt('Rock, Paper or Scissors');
-userSelects = userSelects.toLowerCase();
-switch (userSelects) {
+userSelect = prompt('Rock, Paper or Scissors');
+
+userChosen = userSelect.toLowerCase();
+switch (userChosen) {
 case 'rock':
     console.log('You selected Rock');
     break;
@@ -20,30 +24,74 @@ case 'paper':
 case 'scissors':
     console.log('You selected Scissors');
     break;
-}
 
-return userSelects;
+default:
+    alert('Choose either Rock, Paper or Scissors dummy!');
+    break;
+}
+return userChosen;
 } 
 
 
 function computerPlay() {
-let computerRandom = Math.floor ((Math.random () * 3) +1);
-switch (computerRandom) {
+computerChosen = Math.floor ((Math.random () * 3) +1);
+switch (computerChosen) {
 case 1:
     console.log('Computer selected Rock');
+    computerChosen = 'rock';
     break;
 case 2:
     console.log('Computer selected Paper');
+    computerChosen = 'paper';
     break;
 case 3:
     console.log('Computer selected Scissors');
+    computerChosen = 'scissors';
     break;
 }
-return computerRandom;
+return computerChosen;
 }
 
-userPlay();
-computerPlay();
+
+
+function Results(computerChosen , userChosen) {
+ if (computerChosen === userChosen) {
+ return result = 'It\'s a Tie!'
+}
+ else if (computerChosen === 'rock' && userChosen === 'paper') {
+ return result = 'You won!'
+}
+ else if (computerChosen === 'paper' && userChosen === 'rock') {
+ return result = 'Computer won!'    
+ }
+
+ else if (computerChosen === 'rock' && userChosen === 'scissors') {
+ return result = 'Computer won!'
+}
+ else if (computerChosen === 'scissors' && userChosen === 'rock') {
+ return result = 'You won'    
+ }
+ else if (computerChosen === 'paper' && userChosen === 'scissors') {
+ return result = 'You won!'
+}
+ else if (computerChosen === 'scissors' && userChosen === 'rock') {
+ return result = 'Computer won'    
+ }  
+ else {
+ return result = 'Something went wrong!'
+ }
+}
+
+function playRound(){
+    let computerChosen =
+    computerPlay();    
+    let userChosen    =
+    userPlay();
+
+console.log(Results(computerChosen, userChosen));
+}
+
+playRound ();
 
  </script>
 </body>
