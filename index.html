@@ -10,6 +10,7 @@
 let userScore=0;
 let computerScore=0;
 let round=0;
+let i;
 
 function userPlay() {
 userSelect = prompt('Rock, Paper or Scissors');
@@ -95,7 +96,7 @@ function checkScore(){
     switch (result) {
 case 'You won!':
     userScore++;
-    round++;    
+    round++;   
 break;
 
 case 'Computer won!':
@@ -104,7 +105,7 @@ case 'Computer won!':
 break;
 
 case 'It\'s a Tie!':
-    round++;  
+    round++; 
 break;
 }
 
@@ -128,19 +129,13 @@ else if (userScore > computerScore){
 function game() {
 playRound ();
 checkScore();
-playRound ();
-checkScore();
-playRound ();
-checkScore();
-playRound ();
-checkScore();
-playRound ();
-checkScore();
-finalScore();
 }
 
+for (i=0; i<5; i++) {    
 game();
+}
 
+finalScore();
  </script>
 </body>
 </html>
